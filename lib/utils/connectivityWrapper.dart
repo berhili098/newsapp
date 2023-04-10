@@ -25,7 +25,7 @@ connectivityWrapper(Widget child) {
           ),
           10.verticalSpace,
           Text(
-            'Whoops',
+            'Whoopsie!',
             style: TextStyle(
                 fontFamily: 'LatoBold', fontSize: 36.sp, color: primaryColor),
           ),
