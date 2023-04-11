@@ -23,7 +23,10 @@ class News {
   News.fromJson(Map<String, dynamic> json) {
     source =
         json['source'] != null ? new Source.fromJson(json['source']) : null;
-    author = json['author'];
+    author = json['author']
+        .toString()
+        .replaceAll("null", "Pas d'auteur")
+        .replaceAll("None", "Pas d'auteur");
     title = json['title'];
     description = json['description'];
     url = json['url'];
@@ -37,7 +40,7 @@ class News {
     if (this.source != null) {
       data['source'] = this.source!.toJson();
     }
-    data['author'] = this.author;
+    data['author'] = this.author ?? "Pas d'auteur";
     data['title'] = this.title;
     data['description'] = this.description;
     data['url'] = this.url;

@@ -115,29 +115,27 @@ class MainPage extends StatelessWidget {
                                                           Icon(Icons.error),
                                                     ),
                                                   ),
-                                                  10.verticalSpace,
+                                                  5.verticalSpace,
                                                   Padding(
                                                     padding:
                                                         EdgeInsets.symmetric(
                                                             horizontal: 10.w),
                                                     child: Text(
                                                       "Autheur:" +
-                                                              controller
-                                                                  .allNews[
-                                                                      index]
-                                                                  .author! ??
-                                                          "Pas d'auteur",
+                                                          controller
+                                                              .allNews[index]
+                                                              .author!,
                                                       overflow:
                                                           TextOverflow.ellipsis,
                                                       softWrap: false,
-                                                      maxLines: 4,
+                                                      maxLines: 2,
                                                       style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 16.sp,
                                                       ),
                                                     ),
                                                   ),
-                                                  10.verticalSpace,
+                                                  5.verticalSpace,
                                                   Padding(
                                                     padding:
                                                         EdgeInsets.symmetric(
@@ -187,8 +185,11 @@ class MainPage extends StatelessWidget {
                                                         EdgeInsets.symmetric(
                                                             horizontal: 10.w),
                                                     child: Text(
-                                                    controller.convertDate(  controller.allNews[index]
-                                                              .publishedAt!) ??
+                                                      controller.convertDate(
+                                                              controller
+                                                                  .allNews[
+                                                                      index]
+                                                                  .publishedAt!) ??
                                                           "Pas de date",
                                                       overflow:
                                                           TextOverflow.ellipsis,
