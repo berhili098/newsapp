@@ -78,17 +78,24 @@ class NewsDetailsScreen extends StatelessWidget {
                             ),
                           ),
                           20.verticalSpace,
+                          Text(
+                            "Source: ${controller.news.source!.name}",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                            ),
+                          ),
+                          10.verticalSpace,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Source: ${controller.news.source!.name}",
+                                "Written by: ${controller.news.author}",
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                 ),
                               ),
                               Text(
-                                "Written by: ${controller.news.author}",
+                                " at: ${controller.convertDate(controller.news.publishedAt)}",
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                 ),
