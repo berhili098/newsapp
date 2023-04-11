@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:newsapp/controllers/newsDetails.dart';
+import 'package:newsapp/views/webView.dart';
 
 import '../utils/connectivityWrapper.dart';
 
@@ -59,6 +62,50 @@ class NewsDetailsScreen extends StatelessWidget {
                               fontSize: 16.sp,
                             ),
                           ),
+                          20.verticalSpace,
+                          Text(
+                            "Read more about this news here:",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          10.verticalSpace,
+                          Text(
+                            controller.news.content!,
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                            ),
+                          ),
+                          20.verticalSpace,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Source: ${controller.news.source!.name}",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                ),
+                              ),
+                              Text(
+                                "Written by: ${controller.news.author}",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                          20.verticalSpace,
+                          controller.news.url!.isEmpty
+                              ? Container()
+                              : ElevatedButton(
+                                  onPressed: () {
+                                    controller.launchURL(controller.news.url!);
+                                    Get.to(
+                                      () => WebView(cont: controller.cont),
+                                    );
+                                  },
+                                  child: Text("Read More")),
                         ],
                       ),
                     )

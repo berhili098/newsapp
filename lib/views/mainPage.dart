@@ -67,13 +67,9 @@ class MainPage extends StatelessWidget {
                                         itemBuilder: (context, index) {
                                           return InkWell(
                                             onTap: () {
-                                              Get.to( () => NewsDetailsScreen(
-                                                    
-                                                  ),
+                                              Get.to(() => NewsDetailsScreen(),
                                                   arguments: controller
-                                                        .allNews[index]
-                                                  );
-
+                                                      .allNews[index]);
                                             },
                                             child: Container(
                                               decoration: BoxDecoration(
@@ -114,25 +110,49 @@ class MainPage extends StatelessWidget {
                                                           ),
                                                         ),
                                                       ),
-                                                      errorWidget:
-                                                          (context, url, error) =>
-                                                              Icon(Icons.error),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Icon(Icons.error),
                                                     ),
                                                   ),
                                                   10.verticalSpace,
                                                   Padding(
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 10.w),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 10.w),
+                                                    child: Text(
+                                                      "Autheur:" +
+                                                              controller
+                                                                  .allNews[
+                                                                      index]
+                                                                  .author! ??
+                                                          "Pas d'auteur",
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      softWrap: false,
+                                                      maxLines: 4,
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 16.sp,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  10.verticalSpace,
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 10.w),
                                                     child: Text(
                                                       "title:" +
                                                               controller
-                                                                  .allNews[index]
+                                                                  .allNews[
+                                                                      index]
                                                                   .title! ??
                                                           "Pas de titre",
                                                       overflow:
                                                           TextOverflow.ellipsis,
                                                       softWrap: false,
-                                                      maxLines: 4,
+                                                      maxLines: 2,
                                                       style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 16.sp,
@@ -146,17 +166,37 @@ class MainPage extends StatelessWidget {
                                                           EdgeInsets.symmetric(
                                                               horizontal: 10.w),
                                                       child: Text(
-                                                        controller.allNews[index]
-                                                                .description ??
-                                                            "Pas de description",
-                                                        overflow:
-                                                            TextOverflow.ellipsis,
+                                                        controller
+                                                                .allNews[index]
+                                                                .source!
+                                                                .name! ??
+                                                            "Pas de source",
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
                                                         softWrap: false,
                                                         maxLines: 2,
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontSize: 14.sp,
                                                         ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 10.w),
+                                                    child: Text(
+                                                    controller.convertDate(  controller.allNews[index]
+                                                              .publishedAt!) ??
+                                                          "Pas de date",
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      softWrap: false,
+                                                      maxLines: 4,
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 16.sp,
                                                       ),
                                                     ),
                                                   ),
